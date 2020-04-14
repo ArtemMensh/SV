@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class EnterScene : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -18,16 +19,18 @@ public class MainMenu : MonoBehaviour
 
     public void OnChangePasswordClick()
     {
+        SceneManager.LoadScene("PasswordRec");
         Debug.Log("Congratulations change password");
     }
 
     public void OnEnterClick()
     {
-        Debug.Log("Congratulations enter");
+        Debug.Log("Congratulations sign in");
     }
 
     public void OnSignUpClick()
     {
+        SceneManager.LoadScene("RegistrationScene");
         Debug.Log("Congratulations sign up");
     }
 }

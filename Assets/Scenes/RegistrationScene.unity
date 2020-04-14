@@ -605,7 +605,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 651447100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78da9f233ce0862469b2249b7a762767, type: 3}
+  m_Script: {fileID: 11500000, guid: a6e6fbb7cd37da44dbce0dbad33f96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &651447102
@@ -852,7 +852,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 651447101}
+      - m_Target: {fileID: 0}
         m_MethodName: OnSignUpClick
         m_Mode: 1
         m_Arguments:
@@ -1054,8 +1054,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1345828670}
   m_TextComponent: {fileID: 2062815827}
   m_Placeholder: {fileID: 477615043}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -1570,7 +1570,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1748158731}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 651447101}
+        m_MethodName: OnClickBack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1748158731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1762,8 +1773,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2061442800}
   m_TextComponent: {fileID: 618405775}
   m_Placeholder: {fileID: 641977520}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
