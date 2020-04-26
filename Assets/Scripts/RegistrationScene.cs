@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Text;
 
 public class RegistrationScene : MonoBehaviour
 {
@@ -91,7 +92,7 @@ public class RegistrationScene : MonoBehaviour
         else
         {
 
-            SceneManager.LoadScene("MainScence");
+            SceneManager.LoadScene("EnterScence");
         }
     }
 }
