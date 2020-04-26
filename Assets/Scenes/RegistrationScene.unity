@@ -888,7 +888,7 @@ MonoBehaviour:
   _textPhone: {fileID: 2142699353}
   _textPass: {fileID: 2061442799}
   _textRetryPass: {fileID: 1345828669}
-  _textErrorPass: {fileID: 0}
+  _textErrorPass: {fileID: 284116860}
   _errorPass: {fileID: 402742142}
 --- !u!4 &651447102
 Transform:

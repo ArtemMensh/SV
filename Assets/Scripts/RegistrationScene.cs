@@ -8,14 +8,15 @@ using UnityEngine.UI;
 
 public class RegistrationScene : MonoBehaviour
 {
-
+#pragma warning disable 0649
     [SerializeField] private InputField _textLogin;
     [SerializeField] private InputField _textPhone;
     [SerializeField] private InputField _textPass;
     [SerializeField] private InputField _textRetryPass;
-    [SerializeField] private InputField _textErrorPass;
+    [SerializeField] private Text _textErrorPass;
 
     [SerializeField] private GameObject _errorPass;
+#pragma warning restore 0649
 
     // Start is called before the first frame update
     void Start()
@@ -76,23 +77,21 @@ public class RegistrationScene : MonoBehaviour
     private IEnumerator Send(string login, string pass, string phone)
     {
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
-        formData.Add(new MultipartFormDataSection("username=" + login));
-        formData.Add(new MultipartFormDataSection("password=" + pass));
-        formData.Add(new MultipartFormDataSection("phone=" + phone));
-        
-        //formData.Add(new MultipartFormFileSection("my file data", "myfile.txt"));
+        formData.Add(new MultipartFormDataSection("username",  login));
+        formData.Add(new MultipartFormDataSection("password",  pass));
+        formData.Add(new MultipartFormDataSection("phone", phone));
 
-        //UnityWebRequest www = UnityWebRequest.Post("https://sv.egipti.com/api/auth/register", formData);
-        UnityWebRequest www = UnityWebRequest.Post("https://sv.egipti.com/api/auth/register","username=" + login + "&password=" + pass + "&phone="+phone);
+        UnityWebRequest www = UnityWebRequest.Post("https://sv.egipti.com/api/auth/register", formData);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
         {
-            Debug.Log(www.error);
+            ShowErrorPass(true, "Возникла ошибка при регестрации");
         }
         else
         {
-            Debug.Log("Form upload complete!");
+
+            SceneManager.LoadScene("MainScence");
         }
     }
 }
