@@ -92,7 +92,7 @@ public class RegistrationScene : MonoBehaviour
         else
         {
 
-            SceneManager.LoadScene("EnterScence");
+            SceneManager.LoadScene("EnterScene");
         }
     }
 }
