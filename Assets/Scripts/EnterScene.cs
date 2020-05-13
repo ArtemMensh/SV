@@ -32,7 +32,6 @@ public class EnterScene : MonoBehaviour
     public void OnChangePasswordClick()
     {
         SceneManager.LoadScene("PasswordRec");
-        Debug.Log("Congratulations change password");
     }
 
     public void OnEnterClick()
@@ -56,7 +55,6 @@ public class EnterScene : MonoBehaviour
     public void OnSignUpClick()
     {
         SceneManager.LoadScene("RegistrationScene");
-        Debug.Log("Congratulations sign up");
     }
 
     private IEnumerator Send(string login, string pass)
@@ -75,7 +73,9 @@ public class EnterScene : MonoBehaviour
         else
         {
            string results = www.downloadHandler.text;
-            var g = JsonConvert.DeserializeObject<ForJson>(results); ;
+            var json = JsonConvert.DeserializeObject<ForJsonLogin>(results);
+            var jwt = json.response.jwt;
+            PlayerPrefs.SetString("jwt", jwt);
             SceneManager.LoadScene("MainScence");
         }
     }
