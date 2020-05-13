@@ -9,18 +9,27 @@ EditorBuildSettings:
     path: Assets/Scenes/EnterScene.unity
     guid: 8d22bb369c6d7bc499e058f7f1843a1d
   - enabled: 1
+    path: Assets/Scenes/Filters.unity
+    guid: 25663ff9f19373c458c1398480d1fdaf
+  - enabled: 1
+    path: Assets/Scenes/MainScence.unity
+    guid: 6f2a746480315ad4c8f4ef399a89681a
+  - enabled: 1
+    path: Assets/Scenes/Add.unity
+    guid: 5dbc6e4a6ab18d84bba121f375f386b1
+  - enabled: 1
+    path: Assets/Scenes/AddChildren.unity
+    guid: 17fe45cb280b2ef42aeee96c86da08de
+  - enabled: 1
+    path: Assets/Scenes/AddParent.unity
+    guid: 83214d203fd436d4cbd82d6464487359
+  - enabled: 1
+    path: Assets/Scenes/PasswordRec.unity
+    guid: 53f1aa40085b5a04b9b2250c1ae0eba9
+  - enabled: 1
     path: Assets/Scenes/Profile.unity
     guid: e1c426b256d19f143a1a5af03944a524
   - enabled: 1
     path: Assets/Scenes/RegistrationScene.unity
     guid: 59babe45adb54a54899d2c125c06e587
-  - enabled: 1
-    path: Assets/Scenes/PasswordRec.unity
-    guid: 53f1aa40085b5a04b9b2250c1ae0eba9
-  - enabled: 1
-    path: Assets/Scenes/MainScence.unity
-    guid: 6f2a746480315ad4c8f4ef399a89681a
-  - enabled: 1
-    path: Assets/Scenes/Filters.unity
-    guid: 25663ff9f19373c458c1398480d1fdaf
   m_configObjects: {}
