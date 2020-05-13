@@ -42,7 +42,16 @@ public class AddChildren : MonoBehaviour
             string results = www.downloadHandler.text;
             var json = JsonConvert.DeserializeObject<ForJsonLogin>(results);
             var jwt = json.response.jwt;
-            PlayerPrefs.SetString("jwt", jwt);
+            if(PlayerPrefs.HasKey("ParentToken"))
+            {
+                var str = PlayerPrefs.GetString("ParentToken");
+                str += "," + jwt;
+                PlayerPrefs.SetString("ParentToken", str);
+            }
+            else
+            {
+                PlayerPrefs.SetString("ParentToken", jwt);
+            }
             SceneManager.LoadScene("MainScence");
         }
     }

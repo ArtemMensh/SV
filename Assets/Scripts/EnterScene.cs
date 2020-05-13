@@ -18,17 +18,6 @@ public class EnterScene : MonoBehaviour
     [SerializeField] private GameObject _errorPass;
 #pragma warning restore 0649
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void OnChangePasswordClick()
     {
         SceneManager.LoadScene("PasswordRec");

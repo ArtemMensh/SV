@@ -22,15 +22,10 @@ public class AddParent : MonoBehaviour
 
             StartCoroutine(Send(jwt));
         }
-
-
     }
 
     private IEnumerator Send(string jwt)
     {
-        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
-        formData.Add(new MultipartFormDataSection("token", jwt));
-
         UnityWebRequest www = UnityWebRequest.Get("https://sv.egipti.com/api/children/code?token="+jwt);
         yield return www.SendWebRequest();
 
