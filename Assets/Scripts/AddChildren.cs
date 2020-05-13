@@ -51,8 +51,9 @@ public class AddChildren : MonoBehaviour
             else
             {
                 PlayerPrefs.SetString("ParentToken", jwt);
+                ShowErrorPass(true, "Sucsessful");
             }
-            SceneManager.LoadScene("MainScence");
+            //SceneManager.LoadScene("MainScence");
         }
     }
 

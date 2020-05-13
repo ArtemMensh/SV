@@ -29,27 +29,24 @@ public class Controller : MonoBehaviour
 
     private void Start()
     {
-        if(PlayerPrefs.HasKey("ParentToken"))
-        {
-            StartCoroutine(StartSendPoint(20));
-        }
-
-        StartCoroutine(StartRequest(20));
+        StartCoroutine(StartSendPoint(1));
+        StartCoroutine(StartRequest(1));
     }
 
-    // Проверяем всех детей
+    // дети будут посылаться раз в n секунд
     private IEnumerator StartRequest(float seconds)
     {
         while (true)
         {
             var jwt = PlayerPrefs.GetString("jwt");
 
-            Request(jwt);
+            StartCoroutine(Request(jwt));
 
             yield return new WaitForSecondsRealtime(seconds);
         }
     }
 
+    // принимаем все данные по детям
     private IEnumerator Request(string jwt)
     {
         UnityWebRequest www = UnityWebRequest.Get("https://sv.egipti.com/api/children?token=" + jwt);
@@ -69,17 +66,19 @@ public class Controller : MonoBehaviour
     {
         while (true)
         {
-            var arrayJwt = PlayerPrefs.GetString("ParentToken").Split(',');
-
-            // определяем позицию ребенка 
-            var lat = 0;
-            var lng = 0;
-
-            foreach (var jwt in arrayJwt)
+            if (PlayerPrefs.HasKey("ParentToken"))
             {
-                SendPointChildren(jwt, lat, lng);
-            }
+                var arrayJwt = PlayerPrefs.GetString("ParentToken").Split(',');
 
+                // определяем позицию ребенка 
+                var lat = 0;
+                var lng = 0;
+
+                foreach (var jwt in arrayJwt)
+                {
+                    SendPointChildren(jwt, lat, lng);
+                }
+            }
             yield return new WaitForSecondsRealtime(seconds);
         }
     }
@@ -100,6 +99,46 @@ public class Controller : MonoBehaviour
         else
         {
         }
+    }
+
+    private IEnumerator GetGeolocation()
+    {
+        // First, check if user has location service enabled
+        if (!Input.location.isEnabledByUser)
+            yield break;
+
+        // Start service before querying location
+        Input.location.Start();
+
+        // Wait until service initializes
+        int maxWait = 20;
+        while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
+        {
+            yield return new WaitForSeconds(1);
+            maxWait--;
+        }
+
+        // Service didn't initialize in 20 seconds
+        if (maxWait < 1)
+        {
+            print("Timed out");
+            yield break;
+        }
+
+        // Connection has failed
+        if (Input.location.status == LocationServiceStatus.Failed)
+        {
+            print("Unable to determine device location");
+            yield break;
+        }
+        else
+        {
+            // Access granted and location value could be retrieved
+            print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
+        }
+
+        // Stop service if there is no need to query location updates continuously
+        // Input.location.Stop();
     }
 
 
