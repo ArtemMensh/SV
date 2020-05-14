@@ -1,5 +1,6 @@
 ﻿
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -54,9 +55,12 @@ public class Controller : MonoBehaviour
 
         if (www.isNetworkError || www.isHttpError)
         {
+            //JObject o = new JObject();
+            //o = JObject.Parse();
         }
         else
         {
+
         }
     }
 
@@ -95,9 +99,11 @@ public class Controller : MonoBehaviour
 
         if (www.isNetworkError || www.isHttpError)
         {
+
         }
         else
         {
+
         }
     }
 
