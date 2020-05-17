@@ -25,14 +25,16 @@ public class EnterScene : MonoBehaviour
 
     public void OnEnterClick()
     {
-        var pass = _Pass.text;
-        var login = _Login.text;
+        //var pass = _Pass.text;
+        //var login = _Login.text;
+        var pass = "child";
+        var login = "child";
 
-        if (!FillField())
+        /*if (!FillField())
         {
             ShowErrorPass(true, "Не все поля заполнены");
             return;
-        }
+        }*/
 
         //Отправляем запрос для входа
         StartCoroutine(Send(login, pass));
