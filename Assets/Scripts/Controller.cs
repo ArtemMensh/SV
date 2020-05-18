@@ -1,12 +1,7 @@
-﻿
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
 
 // Object.DontDestroyOnLoad example.
 //
@@ -37,10 +32,10 @@ public class Controller : MonoBehaviour
     // дети будут посылаться раз в n секунд
     private IEnumerator StartRequest(float seconds)
     {
+        var jwt = PlayerPrefs.GetString("jwt");
+
         while (true)
         {
-            var jwt = PlayerPrefs.GetString("jwt");
-
             StartCoroutine(Request(jwt));
 
             yield return new WaitForSecondsRealtime(seconds);
