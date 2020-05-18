@@ -25,13 +25,14 @@ public class Controller : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(StartSendPoint(1));
-        StartCoroutine(StartRequest(1));
+        StartCoroutine(StartSendPoint(10));
+        StartCoroutine(StartRequest(10));
     }
 
     // дети будут посылаться раз в n секунд
     private IEnumerator StartRequest(float seconds)
     {
+        //id user
         var jwt = PlayerPrefs.GetString("jwt");
 
         while (true)
@@ -50,6 +51,7 @@ public class Controller : MonoBehaviour
 
         if (www.isNetworkError || www.isHttpError)
         {
+
             //JObject o = new JObject();
             //o = JObject.Parse();
         }
